@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package Proto;
+
+import "common/math.proto";
+
+enum CategorySyncMessage {
+	SYNC_TRANSFORM = 0;
+	PLAY_ACTION = 1;
+	ENTITY_DAMAGED = 2;
+}
+
+message PayloadTransformSync {
+	uint64 id = 1;
+	uint64 timestamp = 2;
+	Vector3 position = 3;
+}
+
+message PayloadPlayAction {
+	uint64 id = 1;
+	uint32 action_id = 2;
+	uint64 timestamp = 3;
+	oneof target {
+		uint64 entity_id = 4;
+		Vector3 position = 5;
+	}
+}
+
+message PayloadEntityDamaged {
+	uint64 attacker_id = 1;
+	uint64 target_id = 2;
+	int32 damage = 3;
+}

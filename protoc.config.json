@@ -1,0 +1,38 @@
+{
+	"protoc": "./proto/protoc-32.1-win64/bin/protoc.exe",
+	"protoDir": "./proto",
+	"targets": [
+		{
+			"name": "C++ Client",
+			"lang": "cpp",
+			"out": "./PortfolioGameClient/Game/Scripts/Proto",
+			"files": [
+				"common/math.proto",
+				"common/action.proto",
+				"process/network/text.proto",
+				"process/login/login.proto",
+				"process/login/logout.proto",
+				"process/zone/sync.proto",
+				"process/zone/enemy.proto",
+				"process/world/player_route.proto",
+				"process/gateway/packet.proto"
+			]
+		},
+		{
+			"name": "Rust Gateway",
+			"lang": "rust",
+			"out": "./PortfolioGameServer/portfolio-server-gateway/src/network/proto",
+			"rustOpt": "experimental-codegen=enabled,kernel=upb",
+			"files": [
+				"common/math.proto",
+				"process/network/text.proto",
+				"process/login/login.proto",
+				"process/login/logout.proto",
+				"process/zone/sync.proto",
+				"process/zone/enemy.proto",
+				"process/world/player_route.proto",
+				"process/gateway/packet.proto"
+			]
+		}
+	]
+}

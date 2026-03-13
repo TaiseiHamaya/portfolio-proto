@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package Proto;
+
+import "common/math.proto";
+
+enum CategoryWorldMessage {
+	ZONE_ENTER_REQUEST = 0;
+	ZONE_ENTER_RESPONSE = 1;
+	ZONE_EXIT = 2;
+}
+
+message PayloadZoneEnterRequest {
+	uint64 player_id = 1;
+	string zone_name = 2;
+}
+
+message PayloadZoneEnterResponse {
+	uint64 player_id = 1;
+	bool is_succeeded = 2;
+	Vector3 position = 3;
+}
+
+message PayloadZoneExit {
+	uint64 player_id = 1;
+	string zone_name = 2;
+	Vector3 last_position = 3;
+}

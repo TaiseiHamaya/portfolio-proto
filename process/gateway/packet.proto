@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package Proto;
+
+import "process/network/text.proto";
+import "process/login/login.proto";
+import "process/login/logout.proto";
+import "process/zone/sync.proto";
+import "process/zone/enemy.proto";
+import "process/world/player_route.proto";
+
+// Gateway-facing routing packet: all payload types the gateway receives from
+// clients and forwards to the appropriate internal process.
+message Packet {
+  oneof message {
+    PayloadLoginRequest       login_request       = 1;
+    PayloadLoginResult        login_result        = 2;
+    PayloadLoginNotification  login_notification  = 3;
+
+    PayloadLogoutRequest      logout_request      = 4;
+    PayloadLogoutResponse     logout_response     = 5;
+    PayloadLogoutNotification logout_notification = 6;
+    
+	PayloadTransformSync      transform_sync      = 7;
+    PayloadPlayAction         play_action         = 8;
+    PayloadEntityDamaged      entity_damaged      = 9;
+    
+	PayloadEnemySpawn         enemy_spawn         = 10;
+    PayloadEnemyDespawn       enemy_despawn       = 11;
+    
+	PayloadTextMessage        text_message        = 12;
+    PayloadSystemMessage      system_message      = 13;
+    
+	PayloadZoneEnterRequest   zone_enter_request  = 14;
+    PayloadZoneEnterResponse  zone_enter_response = 15;
+    PayloadZoneExit           zone_exit           = 16;
+  }
+}

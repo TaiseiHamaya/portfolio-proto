@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package Proto;
+
+enum CategoryLogoutMessage {
+	LOGOUT_REQUEST = 0;
+	LOGOUT_RESPONSE = 1;
+	LOGOUT_NOTIFICATION = 2;
+}
+
+message PayloadLogoutRequest {
+	uint64 id = 1;
+}
+
+message PayloadLogoutResponse {
+	bool is_succeeded = 1;
+}
+
+message PayloadLogoutNotification {
+	uint64 id = 1;
+}

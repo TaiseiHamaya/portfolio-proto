@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package Proto;
+
+import "google/protobuf/empty.proto";
+import "process/world/player_route.proto";
+
+// Gateway → World: cross-zone player routing.
+service WorldService {
+	rpc ZoneEnter(PayloadZoneEnterRequest) returns (PayloadZoneEnterResponse);
+	rpc ZoneExit (PayloadZoneExit)         returns (google.protobuf.Empty);
+}
