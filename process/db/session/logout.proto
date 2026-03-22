@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package Proto;
+
+message PayloadLogoutRequest {
+  uint64 id = 1;
+}
+
+message PayloadLogoutResponse {
+  bool is_succeeded = 1;
+}

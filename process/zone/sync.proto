@@ -4,12 +4,6 @@ package Proto;
 
 import "common/math.proto";
 
-enum CategorySyncMessage {
-	SYNC_TRANSFORM = 0;
-	PLAY_ACTION = 1;
-	ENTITY_DAMAGED = 2;
-}
-
 message PayloadTransformSync {
 	uint64 id = 1;
 	uint64 timestamp = 2;
@@ -27,7 +21,6 @@ message PayloadPlayAction {
 }
 
 message PayloadEntityDamaged {
-	uint64 attacker_id = 1;
-	uint64 target_id = 2;
+	uint64 entity_id = 2;
 	int32 damage = 3;
 }

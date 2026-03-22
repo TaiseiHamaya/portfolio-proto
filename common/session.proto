@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package Proto;
+
+message SessionId {
+  fixed64 high = 1;
+  fixed64 low  = 2;
+}

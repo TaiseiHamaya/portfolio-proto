@@ -4,11 +4,6 @@ package Proto;
 
 import "common/math.proto";
 
-enum CategoryEnemyMessage {
-	ENEMY_SPAWN = 0;
-	ENEMY_DESPAWN = 1;
-}
-
 message PayloadEnemySpawn {
 	uint64 id = 1;
 	string name = 2;

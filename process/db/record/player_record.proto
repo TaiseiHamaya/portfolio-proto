@@ -3,22 +3,25 @@ syntax = "proto3";
 package Proto;
 
 import "common/math.proto";
-
-enum CategoryDbMessage {
-	PLAYER_LOAD_REQUEST = 0;
-	PLAYER_LOAD_RESPONSE = 1;
-	PLAYER_SAVE_REQUEST = 2;
-	PLAYER_SAVE_RESPONSE = 3;
-}
+import "common/session.proto";
 
 message PayloadPlayerRecord {
-	uint64 id = 1;
+	SessionId session_id = 1;
 	string username = 2;
 	Vector3 position = 3;
+	uint64 zone_id = 4;
+}
+
+message PayloadAuthRequest {
+  SessionId session_id = 1;
+}
+
+message PayloadAuthResponse {
+  bool is_succeeded = 1;
 }
 
 message PayloadPlayerLoadRequest {
-	string username = 1;
+	SessionId session_id = 1;
 }
 
 message PayloadPlayerLoadResponse {

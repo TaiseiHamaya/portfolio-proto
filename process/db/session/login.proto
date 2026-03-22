@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package Proto;
+
+import "common/math.proto";
+import "common/session.proto";
+
+message PayloadLoginRequest {
+  SessionId session_id = 1;
+}
+
+message PayloadLoginResponse {
+  bool   is_succeeded = 2;
+}

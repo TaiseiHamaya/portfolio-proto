@@ -3,26 +3,30 @@ syntax = "proto3";
 package Proto;
 
 import "common/math.proto";
+import "common/session.proto";
 
-enum CategoryWorldMessage {
-	ZONE_ENTER_REQUEST = 0;
-	ZONE_ENTER_RESPONSE = 1;
-	ZONE_EXIT = 2;
+message PayloadBeginZoneEnter {
+  SessionId session_id = 1;
 }
 
-message PayloadZoneEnterRequest {
-	uint64 player_id = 1;
-	string zone_name = 2;
+message PayloadBeginZoneExit {
+  SessionId session_id = 1;
 }
 
-message PayloadZoneEnterResponse {
-	uint64 player_id = 1;
-	bool is_succeeded = 2;
-	Vector3 position = 3;
+message PayloadExitZonePlayer {
+  SessionId session_id = 1;
 }
 
-message PayloadZoneExit {
-	uint64 player_id = 1;
-	string zone_name = 2;
-	Vector3 last_position = 3;
+message PayloadRouteZonePlayer {
+  SessionId session_id = 1;
+}
+
+message PayloadZoneEnterNotification {
+  uint64  id       = 1;
+  string  username = 2;
+  Vector3 position = 3;
+}
+
+message PayloadZoneExitNotification {
+	uint64 id = 1;
 }

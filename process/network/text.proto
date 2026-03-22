@@ -2,17 +2,11 @@ syntax = "proto3";
 
 package Proto;
 
-enum CategoryTextMessage {
-	CHAT_SEND = 0;
-	CHAT_RECEIVE = 1;
-	SYSTEM_MESSAGE = 2;
-}
-
 message PayloadTextMessage {
-	uint64 id = 1;
-	string message = 2;
+  uint64 id      = 1;
+  string message = 2;
 }
 
 message PayloadSystemMessage {
-	string message = 1;
+  string message = 1;
 }

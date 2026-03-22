@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package Proto;
+
+import "login.proto";
+import "logout.proto";
+import "signup.proto";
+
+// Gateway → Session: session management.
+service RecordSessionService {
+  // Login: authenticate player and create session.
+  rpc Login (PayloadLoginRequest)  returns (PayloadLoginResponse);
+
+  // Logout: clear session and perform cleanup.
+  rpc Logout(PayloadLogoutRequest) returns (PayloadLogoutResponse);
+
+  // Signup: create new player.
+  rpc Signup(PayloadSignupRequest) returns (PayloadSignupResponse);
+}

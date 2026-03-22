@@ -3,36 +3,43 @@ syntax = "proto3";
 package Proto;
 
 import "process/network/text.proto";
-import "process/login/login.proto";
-import "process/login/logout.proto";
+import "process/db/session/login.proto";
+import "process/db/session/logout.proto";
+import "process/db/session/signup.proto";
 import "process/zone/sync.proto";
 import "process/zone/enemy.proto";
 import "process/world/player_route.proto";
 
 // Gateway-facing routing packet: all payload types the gateway receives from
 // clients and forwards to the appropriate internal process.
-message Packet {
+message ToServerPacket {
   oneof message {
-    PayloadLoginRequest       login_request       = 1;
-    PayloadLoginResult        login_result        = 2;
-    PayloadLoginNotification  login_notification  = 3;
+    PayloadLoginRequest  login_request  = 1;
+    PayloadLogoutRequest logout_request = 2;
+    PayloadSignupRequest signup_request = 3;
 
-    PayloadLogoutRequest      logout_request      = 4;
-    PayloadLogoutResponse     logout_response     = 5;
-    PayloadLogoutNotification logout_notification = 6;
-    
-	PayloadTransformSync      transform_sync      = 7;
-    PayloadPlayAction         play_action         = 8;
-    PayloadEntityDamaged      entity_damaged      = 9;
-    
-	PayloadEnemySpawn         enemy_spawn         = 10;
-    PayloadEnemyDespawn       enemy_despawn       = 11;
-    
-	PayloadTextMessage        text_message        = 12;
-    PayloadSystemMessage      system_message      = 13;
-    
-	PayloadZoneEnterRequest   zone_enter_request  = 14;
-    PayloadZoneEnterResponse  zone_enter_response = 15;
-    PayloadZoneExit           zone_exit           = 16;
+    PayloadTransformSync transform_sync = 4;
+    PayloadPlayAction    play_action    = 5;
+
+    PayloadTextMessage text_message = 7;
+  }
+}
+
+message ToClientMessage {
+  oneof message {
+    PayloadLoginResponse  login_response  = 1;
+    PayloadLogoutResponse logout_response = 2;
+    PayloadSignupResponse signup_response = 3;
+
+    PayloadTransformSync transform_sync = 4;
+    PayloadPlayAction    play_action    = 5;
+    PayloadEntityDamaged entity_damaged = 6;
+    PayloadEnemySpawn    enemy_spawn    = 7;
+    PayloadEnemyDespawn  enemy_despawn  = 8;
+
+    PayloadZoneEnterNotification zone_enter_response = 9;
+    PayloadZoneExitNotification  zone_exit_response  = 10;
+
+    PayloadTextMessage text_message = 11;
   }
 }
