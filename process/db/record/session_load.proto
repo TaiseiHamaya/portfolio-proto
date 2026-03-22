@@ -3,13 +3,13 @@ syntax = "proto3";
 package Proto;
 
 import "common/session.proto";
-import "player_record.proto";
+import "process/db/record/player_record.proto";
 
 message PayloadPlayerLoadRequest {
-	SessionId session_id = 1;
+  SessionId session_id = 1;
 }
 
 message PayloadPlayerLoadResponse {
-	bool is_succeeded = 1;
-	PayloadPlayerRecord record = 2;
+  bool is_succeeded = 1;
+  PayloadPlayerRecord record = 2;
 }

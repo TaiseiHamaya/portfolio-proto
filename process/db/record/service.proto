@@ -2,18 +2,18 @@ syntax = "proto3";
 
 package Proto;
 
-import "session_create.proto";
-import "session_load.proto";
-import "session_save.proto";
+import "process/db/record/session_create.proto";
+import "process/db/record/session_load.proto";
+import "process/db/record/session_save.proto";
 
 // Gateway → Db: player data management.
-service RecordDbService {
-	// World -> DB: create player and get player id.
-	rpc CreatePlayer (PayloadPlayerCreateRequest) returns (PayloadPlayerCreateResponse);
+service RecordPlayerDbService {
+  // World -> DB: create player and get player id.
+  rpc CreatePlayer (PayloadPlayerCreateRequest) returns (PayloadPlayerCreateResponse);
 
-	// World → Db: load player data.
-	rpc LoadPlayer    (PayloadPlayerLoadRequest) returns (PayloadPlayerLoadResponse);
+  // World → Db: load player data.
+  rpc LoadPlayer    (PayloadPlayerLoadRequest) returns (PayloadPlayerLoadResponse);
 
-	// World → Db: save player data.
-	rpc SavePlayer    (PayloadPlayerSaveRequest) returns (PayloadPlayerSaveResponse);
+  // World → Db: save player data.
+  rpc SavePlayer    (PayloadPlayerSaveRequest) returns (PayloadPlayerSaveResponse);
 }

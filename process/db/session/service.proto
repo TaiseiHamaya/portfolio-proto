@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package Proto;
 
-import "login.proto";
-import "logout.proto";
-import "signup.proto";
+import "process/db/session/login.proto";
+import "process/db/session/logout.proto";
+import "process/db/session/signup.proto";
 
 // Gateway → Session: session management.
 service RecordSessionService {

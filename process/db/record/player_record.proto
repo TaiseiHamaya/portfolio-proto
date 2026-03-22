@@ -6,8 +6,8 @@ import "common/math.proto";
 import "common/session.proto";
 
 message PayloadPlayerRecord {
-	SessionId session_id = 1;
-	string username = 2;
-	Vector3 position = 3;
-	uint64 zone_id = 4;
+  SessionId session_id = 1;
+  string username = 2;
+  Vector3 position = 3;
+  uint64 zone_id = 4;
 }
