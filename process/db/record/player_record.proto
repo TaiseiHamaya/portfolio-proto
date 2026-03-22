@@ -11,28 +11,3 @@ message PayloadPlayerRecord {
 	Vector3 position = 3;
 	uint64 zone_id = 4;
 }
-
-message PayloadAuthRequest {
-  SessionId session_id = 1;
-}
-
-message PayloadAuthResponse {
-  bool is_succeeded = 1;
-}
-
-message PayloadPlayerLoadRequest {
-	SessionId session_id = 1;
-}
-
-message PayloadPlayerLoadResponse {
-	bool is_succeeded = 1;
-	PayloadPlayerRecord record = 2;
-}
-
-message PayloadPlayerSaveRequest {
-	PayloadPlayerRecord record = 1;
-}
-
-message PayloadPlayerSaveResponse {
-	bool is_succeeded = 1;
-}

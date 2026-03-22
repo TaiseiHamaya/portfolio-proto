@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package Proto;
+
+import "common/session.proto";
+
+message PayloadPlayerCreateRequest {
+  SessionId session_id = 1;
+}
+
+message PayloadPlayerCreateResponse {
+  bool is_succeeded = 1;
+}

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package Proto;
+
+import "player_record.proto";
+
+message PayloadPlayerSaveRequest {
+	PayloadPlayerRecord record = 1;
+}
+
+message PayloadPlayerSaveResponse {
+	bool is_succeeded = 1;
+}
