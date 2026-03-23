@@ -6,14 +6,14 @@ import "process/db/record/player_create.proto";
 import "process/db/record/player_load.proto";
 import "process/db/record/player_save.proto";
 
-// Gateway → Db: player data management.
+// World → RecordPlayerDb: player data management.
 service RecordPlayerDbService {
-  // World -> DB: create player and get player id.
+  // World -> RecordPlayerDb: create player and get player id.
   rpc CreatePlayer (PayloadPlayerCreateRequest) returns (PayloadPlayerCreateResponse);
 
-  // World → Db: load player data.
-  rpc LoadPlayer   (PayloadPlayerLoadRequest) returns (PayloadPlayerLoadResponse);
+  // World → RecordPlayerDb: load player data.
+  rpc LoadPlayer   (PayloadPlayerLoadRequest)   returns (PayloadPlayerLoadResponse);
 
-  // World → Db: save player data.
-  rpc SavePlayer   (PayloadPlayerSaveRequest) returns (PayloadPlayerSaveResponse);
+  // World → RecordPlayerDb: save player data.
+  rpc SavePlayer   (PayloadPlayerSaveRequest)   returns (PayloadPlayerSaveResponse);
 }

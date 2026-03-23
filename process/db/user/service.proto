@@ -7,13 +7,13 @@ import "process/db/user/login.proto";
 import "process/db/user/logout.proto";
 import "process/db/user/signup.proto";
 
-// Gateway → Session: session management.
+// Gateway → UserDb: user management.
 service UserDbService {
   // Login: authenticate player and create session.
-  rpc Login (PayloadLoginRequest)  returns (PayloadLoginResponse);
+  rpc Login (PayloadLoginRequest)   returns (PayloadLoginResponse);
 
   // Logout: clear session and perform cleanup.
-  rpc Logout(PayloadLogoutRequest) returns (PayloadLogoutResponse);
+  rpc Logout(PayloadLogoutRequest)  returns (PayloadLogoutResponse);
 
   // Signup: create new player.
   rpc Signup(google.protobuf.Empty) returns (PayloadSignupResponse);

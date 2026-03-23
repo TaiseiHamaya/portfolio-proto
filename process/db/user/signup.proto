@@ -4,6 +4,10 @@ package Proto;
 
 import "common/session.proto";
 
+message PayloadSignupRequest {
+  string username = 1;
+}
+
 message PayloadSignupResponse {
   bool      is_succeeded = 1;
   SessionId session_id   = 2;

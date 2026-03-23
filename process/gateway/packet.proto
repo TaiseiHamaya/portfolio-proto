@@ -3,9 +3,9 @@ syntax = "proto3";
 package Proto;
 
 import "process/network/text.proto";
-import "process/db/session/login.proto";
-import "process/db/session/logout.proto";
-import "process/db/session/signup.proto";
+import "process/db/user/login.proto";
+import "process/db/user/logout.proto";
+import "process/db/user/signup.proto";
 import "process/zone/sync.proto";
 import "process/zone/enemy.proto";
 import "process/world/player_route.proto";
