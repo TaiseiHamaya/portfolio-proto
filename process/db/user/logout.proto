@@ -5,7 +5,7 @@ package Proto;
 import "common/session.proto";
 
 message PayloadLogoutRequest {
-  SessionId id = 1;
+  uint64 user_id = 1;
 }
 
 message PayloadLogoutResponse {

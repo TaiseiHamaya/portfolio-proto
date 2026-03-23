@@ -10,5 +10,6 @@ message PayloadLoginRequest {
 }
 
 message PayloadLoginResponse {
-  bool   is_succeeded = 2;
+  bool   is_succeeded = 1;
+  SessionId session_id = 2;
 }

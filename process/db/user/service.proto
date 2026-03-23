@@ -2,12 +2,13 @@ syntax = "proto3";
 
 package Proto;
 
-import "process/db/session/login.proto";
-import "process/db/session/logout.proto";
-import "process/db/session/signup.proto";
+import "google/protobuf/empty.proto";
+import "process/db/user/login.proto";
+import "process/db/user/logout.proto";
+import "process/db/user/signup.proto";
 
 // Gateway → Session: session management.
-service RecordSessionService {
+service UserDbService {
   // Login: authenticate player and create session.
   rpc Login (PayloadLoginRequest)  returns (PayloadLoginResponse);
 
@@ -15,5 +16,5 @@ service RecordSessionService {
   rpc Logout(PayloadLogoutRequest) returns (PayloadLogoutResponse);
 
   // Signup: create new player.
-  rpc Signup(PayloadSignupRequest) returns (PayloadSignupResponse);
+  rpc Signup(google.protobuf.Empty) returns (PayloadSignupResponse);
 }

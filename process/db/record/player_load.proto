@@ -6,7 +6,7 @@ import "common/session.proto";
 import "process/db/record/player_record.proto";
 
 message PayloadPlayerLoadRequest {
-  SessionId session_id = 1;
+  uint64 user_id = 1;
 }
 
 message PayloadPlayerLoadResponse {
