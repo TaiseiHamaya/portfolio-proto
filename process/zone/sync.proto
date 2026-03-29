@@ -12,12 +12,9 @@ message PayloadTransformSync {
 
 message PayloadPlayAction {
 	uint64 id = 1;
-	uint32 action_id = 2;
-	uint64 timestamp = 3;
-	oneof target {
-		uint64 entity_id = 4;
-		Vector3 position = 5;
-	}
+	uint64 target_id = 2;
+	uint32 action_id = 3;
+	int64 timestamp = 4;
 }
 
 message PayloadEntityDamaged {
