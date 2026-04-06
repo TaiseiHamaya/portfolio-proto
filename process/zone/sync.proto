@@ -21,3 +21,13 @@ message PayloadEntityDamaged {
 	uint64 entity_id = 2;
 	int32 damage = 3;
 }
+
+message PayloadZoneEnterNotification {
+  uint64  id       = 1;
+  string  username = 2;
+  Vector3 position = 3;
+}
+
+message PayloadZoneExitNotification {
+	uint64 id = 1;
+}
