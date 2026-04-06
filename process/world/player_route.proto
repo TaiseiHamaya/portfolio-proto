@@ -5,28 +5,36 @@ package Proto;
 import "common/math.proto";
 import "common/session.proto";
 
-message PayloadBeginZoneEnter {
-  SessionId session_id = 1;
+enum PlayerRouteResult {
+  SUCCESS = 0;
+  NOT_READY = 1;
+  FAILED = 2;
 }
 
-message PayloadBeginZoneExit {
-  SessionId session_id = 1;
+message PayloadPlayerZoneEnterBegin {
+  uint64 user_id = 1;
 }
 
-message PayloadExitZonePlayer {
-  SessionId session_id = 1;
+message PayloadPlayerZoneEnterReady {
+  uint64 user_id = 1;
 }
 
-message PayloadRouteZonePlayer {
-  SessionId session_id = 1;
+message PayloadPlayerEnterZoneComplete {
+  uint64 user_id = 1;
 }
 
-message PayloadZoneEnterNotification {
-  uint64  id       = 1;
-  string  username = 2;
-  Vector3 position = 3;
+message PayloadPlayerExitZoneBegin {
+  uint64 user_id = 1;
 }
 
-message PayloadZoneExitNotification {
-	uint64 id = 1;
+message PayloadPlayerExitZoneReady {
+  uint64 user_id = 1;
+}
+
+message PayloadPlayerExitZoneComplete {
+  uint64 user_id = 1;
+}
+
+message PayloadPlayerRouteResult {
+  PlayerRouteResult result = 1;
 }

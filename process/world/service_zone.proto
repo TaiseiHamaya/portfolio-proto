@@ -3,23 +3,25 @@ syntax = "proto3";
 package Proto;
 
 import "google/protobuf/empty.proto";
-import "google/protobuf/wrappers.proto";
 import "process/world/player_route.proto";
 
 // World → Zone : service for world query.
 service WorldRouteService {
   // World → Zone: player route request.
-  rpc BeginEnterZoneEvent(PayloadBeginZoneEnter) returns (google.protobuf.Empty);
+  rpc BeginPlayerZoneEnter(PayloadPlayerZoneEnterBegin) returns (google.protobuf.Empty);
 
   // World → Zone: check if player is ready to enter the zone.
-  rpc CheckForReadyEnter(PayloadZoneEnterNotification) returns (google.protobuf.BoolValue);
-
-  // World → Zone: check if player is ready to exit the zone.
-  rpc CheckForReadyExit(PayloadZoneExitNotification) returns (google.protobuf.BoolValue);
+  rpc CheckForReadyEnterPlayer(PayloadPlayerZoneEnterReady) returns (PayloadPlayerRouteResult);
 
    // World → Zone: execute player enter zone.
-  rpc ExecuteEnterZonePlayer(PayloadRouteZonePlayer) returns (google.protobuf.BoolValue);
+  rpc ExecuteEnterZonePlayer(PayloadPlayerEnterZoneComplete) returns (PayloadPlayerRouteResult);
 
+  // World → Zone: player exit zone request.
+  rpc BeginPlayerZoneExit(PayloadPlayerExitZoneBegin) returns (google.protobuf.Empty);
+
+  // World → Zone: check if player is ready to exit the zone.
+  rpc CheckForReadyExitPlayer(PayloadPlayerExitZoneReady) returns (PayloadPlayerRouteResult);
+  
   // World → Zone: execute player exit zone.
-  rpc ExecuteExitZonePlayer(PayloadRouteZonePlayer) returns (google.protobuf.BoolValue);
+  rpc ExecuteExitZonePlayer(PayloadPlayerExitZoneComplete) returns (PayloadPlayerRouteResult);
 }
