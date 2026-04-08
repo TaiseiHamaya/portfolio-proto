@@ -16,5 +16,5 @@ service UserDbService {
   rpc Logout(PayloadLogoutRequest)  returns (PayloadLogoutResponse);
 
   // Signup: create new player.
-  rpc Signup(google.protobuf.Empty) returns (PayloadSignupResponse);
+  rpc Signup(PayloadSignupRequest) returns (PayloadSignupResponse);
 }
