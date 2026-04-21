@@ -4,8 +4,8 @@ package Proto;
 
 import "process/world/player_route.proto";
 
-// World -> Zone: 
-service WorldCommand {
-  // World -> Zone: player begin zone exit request.
-  rpc BeginZoneExitCommand(PayloadPlayerZoneEnterBegin) returns (PayloadPlayerRouteResult);
+// Zone -> World: 
+service WorldCommandService {
+  // Zone -> World: player begin zone exit request.
+  rpc BeginZoneExitCommand(PayloadPlayerZoneRouteBeginCommand) returns (PayloadPlayerRouteResult);
 }

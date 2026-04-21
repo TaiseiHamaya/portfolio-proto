@@ -11,6 +11,11 @@ enum PlayerRouteResult {
   FAILED = 2;
 }
 
+message PayloadPlayerZoneRouteBeginCommand {
+  uint64 user_id = 1;
+  optional uint64 target_zone_id = 2;
+}
+
 message PayloadPlayerZoneEnterBegin {
   uint64 user_id = 1;
 }
@@ -19,7 +24,7 @@ message PayloadPlayerZoneEnterReady {
   uint64 user_id = 1;
 }
 
-message PayloadPlayerEnterZoneComplete {
+message PayloadPlayerZoneEnterComplete {
   uint64 user_id = 1;
 }
 

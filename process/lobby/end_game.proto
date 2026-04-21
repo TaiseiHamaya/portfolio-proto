@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package Proto;
+
+import "common/session.proto";
+
+message PayloadLobbyEndGameRequest {
+  uint64 user_id = 1;
+}
+
+message PayloadLobbyEndGameResponse {
+  bool success = 1;
+}
