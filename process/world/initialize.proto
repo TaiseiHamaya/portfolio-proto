@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package Proto;
+
+message PayloadInitializeZoneRequest {
+  uint64 zone_id = 1;
+}
+
+message PayloadInitializeZoneResponse {
+  
+}

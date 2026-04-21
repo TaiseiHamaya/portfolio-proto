@@ -2,10 +2,14 @@ syntax = "proto3";
 
 package Proto;
 
+import "process/world/initialize.proto";
 import "process/world/player_route.proto";
 
-// World -> Zone: 
+// Zone -> World: 
 service WorldCommand {
+  // Zone -> World: initialize zone command.
+  rpc Initialize(PayloadInitializeZoneRequest) returns (PayloadInitializeZoneResponse);
+
   // World -> Zone: player begin zone exit request.
   rpc BeginZoneExitCommand(PayloadPlayerZoneEnterBegin) returns (PayloadPlayerRouteResult);
 }
