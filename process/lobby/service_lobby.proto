@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package Proto;
+
+import "process/lobby/enter.proto";
+import "process/lobby/exit.proto";
+import "process/lobby/start_game.proto";
+import "process/lobby/end_game.proto";
+
+// Gateway -> Lobby : player enter/exit lobby request and response.
+service LobbyService {
+  // Gateway -> Lobby : player enter lobby request.
+  rpc LobbyEnter(PayloadLobbyEnterRequest) returns (PayloadLobbyEnterResponse);
+
+  // Gateway -> Lobby : player exit lobby request.
+  rpc LobbyExit(PayloadLobbyExitRequest) returns (PayloadLobbyExitResponse);
+
+  // Gateway -> Lobby : player start game request.
+  rpc StartGame(PayloadLobbyStartGameRequest) returns (PayloadLobbyStartGameResponse);
+
+  // Gateway -> Lobby : player end game request.
+  rpc EndGame(PayloadLobbyEndGameRequest) returns (PayloadLobbyEndGameResponse);
+}

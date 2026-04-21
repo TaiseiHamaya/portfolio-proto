@@ -12,4 +12,7 @@ service WorldCommand {
 
   // World -> Zone: player begin zone exit request.
   rpc BeginZoneExitCommand(PayloadPlayerZoneEnterBegin) returns (PayloadPlayerRouteResult);
+  
+  // Zone -> World: player begin zone exit request.
+  rpc BeginZoneExitCommand(PayloadPlayerZoneRouteBeginCommand) returns (PayloadPlayerRouteResult);
 }
