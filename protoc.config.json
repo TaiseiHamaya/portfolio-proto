@@ -1,6 +1,6 @@
 {
-	"protoc": "./proto/protoc-32.1-win64/bin/protoc.exe",
-	"protoDir": "./proto",
+	"protoc": "./portfolio-proto/protoc-32.1-win64/bin/protoc.exe",
+	"protoDir": "./portfolio-proto",
 	"targets": [
 		{
 			"name": "C++ Client",
@@ -8,14 +8,19 @@
 			"out": "./PortfolioGameClient/Game/Scripts/Proto",
 			"files": [
 				"common/math.proto",
-				"common/action.proto",
+				"common/session.proto",
+				"process/gateway/packet.proto",
 				"process/network/text.proto",
-				"process/login/login.proto",
-				"process/login/logout.proto",
+				"process/db/user/login.proto",
+				"process/db/user/logout.proto",
+				"process/db/user/signup.proto",
 				"process/zone/sync.proto",
 				"process/zone/enemy.proto",
 				"process/world/player_route.proto",
-				"process/gateway/packet.proto"
+				"process/lobby/start_game.proto",
+				"process/lobby/end_game.proto",
+				"process/lobby/enter.proto",
+				"process/lobby/exit.proto"
 			]
 		},
 		{
@@ -25,13 +30,19 @@
 			"rustOpt": "experimental-codegen=enabled,kernel=upb",
 			"files": [
 				"common/math.proto",
+				"common/session.proto",
+				"process/gateway/packet.proto",
 				"process/network/text.proto",
-				"process/login/login.proto",
-				"process/login/logout.proto",
+				"process/db/user/login.proto",
+				"process/db/user/logout.proto",
+				"process/db/user/signup.proto",
 				"process/zone/sync.proto",
 				"process/zone/enemy.proto",
 				"process/world/player_route.proto",
-				"process/gateway/packet.proto"
+				"process/lobby/start_game.proto",
+				"process/lobby/end_game.proto",
+				"process/lobby/enter.proto",
+				"process/lobby/exit.proto"
 			]
 		}
 	]
