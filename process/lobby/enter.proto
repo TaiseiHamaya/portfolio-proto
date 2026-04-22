@@ -9,5 +9,6 @@ message PayloadLobbyEnterRequest {
 }
 
 message PayloadLobbyEnterResponse {
-  string charactor_name = 2;
+  bool is_succeeded = 1;
+  string character_name = 2;
 }

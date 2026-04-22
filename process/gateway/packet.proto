@@ -34,7 +34,6 @@ message ToServerMessage {
 
 message ToClientMessage {
   oneof message {
-    PayloadLoginResponse  login_response  = 1;
     PayloadLogoutResponse logout_response = 2;
     PayloadSignupResponse signup_response = 3;
 

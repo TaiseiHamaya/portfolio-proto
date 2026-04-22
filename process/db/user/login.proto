@@ -11,5 +11,6 @@ message PayloadLoginRequest {
 
 message PayloadLoginResponse {
   bool   is_succeeded = 1;
-  string character_name = 2;
+  uint32 user_id = 2;
+  SessionId session_id = 3;
 }
