@@ -4,6 +4,7 @@ package Proto;
 
 import "google/protobuf/empty.proto";
 import "process/world/player_route.proto";
+import "process/world/route_result.proto";
 
 // World → Zone : service for world query.
 service WorldRouteService {

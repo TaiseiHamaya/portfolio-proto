@@ -2,14 +2,16 @@ syntax = "proto3";
 
 package Proto;
 
-import "process/world/initialize.proto";
-import "process/world/player_route.proto";
+import "process/world/route_result.proto";
+
+message PayloadBeginRouteCommand {
+  uint64 user_id = 1;
+  optional uint64 source_zone_id = 2;
+  optional uint64 target_zone_id = 3;
+}
 
 // Zone -> World: command for zone initialization, player begin zone exit, etc.
 service WorldCommand {
-  // Zone -> World: initialize zone command.
-  rpc Initialize(PayloadInitializeZoneRequest) returns (PayloadInitializeZoneResponse);
-
   // Zone -> World: player begin zone exit request.
-  rpc BeginZoneExitCommand(PayloadPlayerZoneRouteBeginCommand) returns (PayloadPlayerRouteResult);
+  rpc BeginZoneRoute(PayloadBeginRouteCommand) returns (PayloadPlayerRouteResult);
 }

@@ -5,17 +5,6 @@ package Proto;
 import "common/math.proto";
 import "common/session.proto";
 
-enum PlayerRouteResult {
-  SUCCESS = 0;
-  NOT_READY = 1;
-  FAILED = 2;
-}
-
-message PayloadPlayerZoneRouteBeginCommand {
-  uint64 user_id = 1;
-  optional uint64 target_zone_id = 2;
-}
-
 message PayloadPlayerZoneEnterBegin {
   uint64 user_id = 1;
 }
@@ -38,8 +27,4 @@ message PayloadPlayerExitZoneReady {
 
 message PayloadPlayerExitZoneComplete {
   uint64 user_id = 1;
-}
-
-message PayloadPlayerRouteResult {
-  PlayerRouteResult result = 1;
 }
