@@ -9,4 +9,5 @@ message PayloadLobbyStartGameRequest {
 }
 
 message PayloadLobbyStartGameResponse {
+  uint64 player_entity_id = 1;
 }

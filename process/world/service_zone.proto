@@ -15,7 +15,7 @@ service WorldRouteService {
   rpc CheckForReadyEnterPlayer(PayloadPlayerZoneEnterReady) returns (PayloadPlayerRouteResult);
 
    // World → Zone: execute player enter zone.
-  rpc ExecuteEnterZonePlayer(PayloadPlayerZoneEnterComplete) returns (PayloadPlayerRouteResult);
+  rpc ExecuteEnterZonePlayer(PayloadPlayerZoneEnterComplete) returns (PayloadPlayerZoneEnterCompleteResponse);
 
   // World → Zone: player exit zone request.
   rpc BeginPlayerZoneExit(PayloadPlayerExitZoneBegin) returns (google.protobuf.Empty);

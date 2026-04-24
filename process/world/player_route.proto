@@ -17,6 +17,10 @@ message PayloadPlayerZoneEnterComplete {
   uint64 user_id = 1;
 }
 
+message PayloadPlayerZoneEnterCompleteResponse {
+  optional uint64 player_entity_id = 1;  
+}
+
 message PayloadPlayerExitZoneBegin {
   uint64 user_id = 1;
 }
