@@ -37,17 +37,18 @@ message ToClientMessage {
     PayloadLogoutResponse logout_response = 2;
     PayloadSignupResponse signup_response = 3;
 
-    PayloadLobbyEnterResponse   lobby_enter_response = 4;
-    PayloadLobbyEndGameResponse end_game_response    = 5;
+    PayloadLobbyEnterResponse     lobby_enter_response = 4;
+    PayloadLobbyStartGameResponse start_game_response  = 5;
+    PayloadLobbyEndGameResponse   end_game_response    = 6;
 
-    PayloadTransformSync         transform_sync          = 6;
-    PayloadPlayAction            play_action             = 7;
-    PayloadEntityDamaged         entity_damaged          = 8;
-    PayloadEnemySpawn            enemy_spawn             = 9;
-    PayloadEnemyDespawn          enemy_despawn           = 10;
-    PayloadZoneEnterNotification zone_enter_notification = 11;
-    PayloadZoneExitNotification  zone_exit_notification  = 12;
+    PayloadTransformSync         transform_sync          = 7;
+    PayloadPlayAction            play_action             = 8;
+    PayloadEntityDamaged         entity_damaged          = 9;
+    PayloadEnemySpawn            enemy_spawn             = 10;
+    PayloadEnemyDespawn          enemy_despawn           = 11;
+    PayloadZoneEnterNotification zone_enter_notification = 12;
+    PayloadZoneExitNotification  zone_exit_notification  = 13;
 
-    PayloadTextMessage text_message = 13;
+    PayloadTextMessage text_message = 14;
   }
 }
