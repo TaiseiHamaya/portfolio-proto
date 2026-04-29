@@ -2,8 +2,9 @@ syntax = "proto3";
 
 package Proto;
 
-import "common/math.proto";
 import "common/session.proto";
+
+import "process/world/route_player_data.proto";
 
 message PayloadPlayerZoneEnterBegin {
   uint64 user_id    = 1;
@@ -19,7 +20,7 @@ message PayloadPlayerZoneEnterComplete {
 }
 
 message PayloadPlayerZoneEnterCompleteResponse {
-  optional uint64 player_entity_id = 1;
+  optional RoutePlayerData player_data = 1;
 }
 
 message PayloadPlayerExitZoneBegin {

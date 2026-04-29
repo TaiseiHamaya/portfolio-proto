@@ -7,6 +7,7 @@ import "process/db/user/login.proto";
 import "process/db/user/logout.proto";
 import "process/db/user/signup.proto";
 import "process/zone/sync.proto";
+import "process/zone/client_initializer.proto";
 import "process/zone/enemy.proto";
 import "process/world/player_route.proto";
 import "process/lobby/start_game.proto";
@@ -25,10 +26,12 @@ message ToServerMessage {
     PayloadLobbyStartGameRequest start_game = 4;
     PayloadLobbyEndGameRequest   end_game   = 5;
 
-    PayloadTransformSync transform_sync = 6;
-    PayloadPlayAction    play_action    = 7;
+    PayloadClientInitializerRequest client_initializer_request = 6;
 
-    PayloadTextMessage text_message = 8;
+    PayloadTransformSync transform_sync = 8;
+    PayloadPlayAction    play_action    = 9;
+
+    PayloadTextMessage text_message = 10;
   }
 }
 
@@ -41,14 +44,16 @@ message ToClientMessage {
     PayloadLobbyStartGameResponse start_game_response  = 5;
     PayloadLobbyEndGameResponse   end_game_response    = 6;
 
-    PayloadTransformSync         transform_sync          = 7;
-    PayloadPlayAction            play_action             = 8;
-    PayloadEntityDamaged         entity_damaged          = 9;
-    PayloadEnemySpawn            enemy_spawn             = 10;
-    PayloadEnemyDespawn          enemy_despawn           = 11;
-    PayloadZoneEnterNotification zone_enter_notification = 12;
-    PayloadZoneExitNotification  zone_exit_notification  = 13;
+    PayloadClientInitializerResponse client_initializer_response = 7;
 
-    PayloadTextMessage text_message = 14;
+    PayloadTransformSync         transform_sync          = 8;
+    PayloadPlayAction            play_action             = 9;
+    PayloadEntityDamaged         entity_damaged          = 10;
+    PayloadEnemySpawn            enemy_spawn             = 11;
+    PayloadEnemyDespawn          enemy_despawn           = 12;
+    PayloadZoneEnterNotification zone_enter_notification = 13;
+    PayloadZoneExitNotification  zone_exit_notification  = 14;
+
+    PayloadTextMessage text_message = 15;
   }
 }

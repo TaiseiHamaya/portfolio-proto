@@ -3,12 +3,14 @@ syntax = "proto3";
 package Proto;
 
 import "common/session.proto";
+import "common/math.proto";
 
 message PayloadLobbyStartGameRequest {
   uint64 user_id = 1;
 }
 
 message PayloadLobbyStartGameResponse {
-  uint64 zone_id          = 1;
-  uint64 player_entity_id = 2;
+  uint64  zone_id          = 1;
+  uint64  player_entity_id = 2;
+  Vector3 position         = 3;
 }
