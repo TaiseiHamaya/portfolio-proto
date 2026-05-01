@@ -7,8 +7,8 @@ import "process/db/user/login.proto";
 import "process/db/user/logout.proto";
 import "process/db/user/signup.proto";
 import "process/zone/sync.proto";
-import "process/zone/client_initializer.proto";
 import "process/zone/enemy.proto";
+import "process/zone/client_data_getter.proto";
 import "process/world/player_route.proto";
 import "process/lobby/start_game.proto";
 import "process/lobby/end_game.proto";
@@ -26,12 +26,10 @@ message ToServerMessage {
     PayloadLobbyStartGameRequest start_game = 4;
     PayloadLobbyEndGameRequest   end_game   = 5;
 
-    PayloadClientInitializerRequest client_initializer_request = 6;
+    PayloadTransformSync transform_sync = 6;
+    PayloadPlayAction    play_action    = 7;
 
-    PayloadTransformSync transform_sync = 8;
-    PayloadPlayAction    play_action    = 9;
-
-    PayloadTextMessage text_message = 10;
+    PayloadTextMessage text_message = 8;
   }
 }
 
@@ -44,7 +42,7 @@ message ToClientMessage {
     PayloadLobbyStartGameResponse start_game_response  = 5;
     PayloadLobbyEndGameResponse   end_game_response    = 6;
 
-    PayloadClientInitializerResponse client_initializer_response = 7;
+    PayloadClientInitializerData client_initializer_data = 7;
 
     PayloadTransformSync         transform_sync          = 8;
     PayloadPlayAction            play_action             = 9;
