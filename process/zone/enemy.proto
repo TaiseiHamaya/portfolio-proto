@@ -5,11 +5,11 @@ package Proto;
 import "common/math.proto";
 
 message PayloadEnemySpawn {
-	uint64 id = 1;
-	string name = 2;
+	uint64 enemy_type_id = 1;
+	uint64 entity_id = 2;
 	Vector3 position = 3;
 }
 
 message PayloadEnemyDespawn {
-	uint64 id = 1;
+	uint64 entity_id = 1;
 }
