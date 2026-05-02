@@ -19,7 +19,7 @@ message PayloadPlayerZoneEnterComplete {
   uint64 user_id = 1;
 }
 
-message PayloadPlayerZoneEnterCompleteResponse {
+message PayloadPlayerZoneEnterReadyResponse {
   optional RoutePlayerData player_data = 1;
 }
 

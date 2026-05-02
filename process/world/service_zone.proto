@@ -9,13 +9,13 @@ import "process/world/route_result.proto";
 // World → Zone : service for world query.
 service WorldRouteService {
   // World → Zone: player route request.
-  rpc BeginPlayerZoneEnter(PayloadPlayerZoneEnterBegin) returns (google.protobuf.Empty);
+  rpc BeginPlayerZoneEnter(PayloadPlayerZoneEnterBegin) returns (PayloadPlayerZoneEnterReadyResponse);
 
   // World → Zone: check if player is ready to enter the zone.
   rpc CheckForReadyEnterPlayer(PayloadPlayerZoneEnterReady) returns (PayloadPlayerRouteResult);
 
    // World → Zone: execute player enter zone.
-  rpc ExecuteEnterZonePlayer(PayloadPlayerZoneEnterComplete) returns (PayloadPlayerZoneEnterCompleteResponse);
+  rpc ExecuteEnterZonePlayer(PayloadPlayerZoneEnterComplete) returns (PayloadPlayerRouteResult);
 
   // World → Zone: player exit zone request.
   rpc BeginPlayerZoneExit(PayloadPlayerExitZoneBegin) returns (google.protobuf.Empty);

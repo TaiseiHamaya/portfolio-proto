@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package Proto;
 
+import "google/protobuf/empty.proto";
+
 import "process/world/route_player_data.proto";
 
 message PayloadBeginRouteCommand {
@@ -14,8 +16,15 @@ message PayloadPlayerRouteCommandResponse {
   optional RoutePlayerData player_data = 1;
 }
 
+message PayloadExecuteRoute {
+  uint64 user_id = 1;
+}
+
 // Zone -> World: command for zone initialization, player begin zone exit, etc.
 service WorldCommand {
   // Zone -> World: player begin zone exit request.
   rpc BeginZoneRoute(PayloadBeginRouteCommand) returns (PayloadPlayerRouteCommandResponse);
+
+  // Zone -> World: execute player route.
+  rpc ExecuteZoneRoute(PayloadExecuteRoute) returns (google.protobuf.Empty);
 }
