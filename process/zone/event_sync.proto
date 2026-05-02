@@ -6,30 +6,31 @@ import "google/protobuf/empty.proto";
 import "process/network/text.proto";
 import "process/zone/sync.proto";
 import "process/zone/enemy.proto";
+import "process/zone/client_data_getter.proto";
+
+message BroadcastStream {
+  oneof payload {
+    PayloadTransformSync transform_sync = 1;
+    PayloadPlayAction    play_action    = 2;
+    PayloadEntityDamaged entity_damaged = 3;
+
+    PayloadTextMessage chat_message = 4;
+
+    PayloadEnemySpawn   enemy_spawn   = 5;
+    PayloadEnemyDespawn enemy_despawn = 6;
+
+    PayloadZoneEnterNotification player_enter = 7;
+    PayloadZoneExitNotification  player_exit  = 8;
+
+	PayloadClientInitializerData client_initializer_data = 9;
+  }
+}
+
+message BeginConnectGateway {
+  uint64 gateway_id = 1;
+}
 
 // Zone → Gateway: broadcast message for player.
 service ZoneBroadcastService {
-  // Zone → Client: player transform sync, play action, and chat message.
-  rpc SyncTransform(PayloadTransformSync) returns (google.protobuf.Empty);
-
-  // Zone → Client: player play action and chat message.
-  rpc PlayAction   (PayloadPlayAction)    returns (google.protobuf.Empty);
-
-  // Zone → Client: player chat message.
-  rpc SendChat     (PayloadTextMessage)   returns (google.protobuf.Empty);
-
-  // Zone → Client: enemy spawn and despawn.
-  rpc EnemySpawn   (PayloadEnemySpawn)   returns (google.protobuf.Empty);
-
-  // Zone → Client: enemy spawn and despawn.
-  rpc EnemyDespawn (PayloadEnemyDespawn) returns (google.protobuf.Empty);
-
-  // Zone → Client: entity damaged.
-  rpc EntityDamaged(PayloadEntityDamaged) returns (google.protobuf.Empty);
-
-  // Zone → Client: player zone enter notification.
-  rpc PlayerEnter  (PayloadZoneEnterNotification) returns (google.protobuf.Empty);
-
-  // Zone → Client: player zone exit notification.
-  rpc PlayerExit   (PayloadZoneExitNotification)  returns (google.protobuf.Empty);
+  rpc ZoneSyncStream(BeginConnectGateway) returns (stream BroadcastStream);
 }

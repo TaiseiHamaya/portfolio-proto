@@ -2,12 +2,7 @@ syntax = "proto3";
 
 package Proto;
 
-import "google/protobuf/empty.proto";
-
 import "common/math.proto";
-
-message PayloadClientInitializerRequest {
-}
 
 message EntityData {
   uint64  entity_id = 1;
@@ -25,11 +20,7 @@ message EnemyData {
   uint64     enemy_type_id = 2;
 }
 
-message PayloadClientInitializerResponse {
+message PayloadClientInitializerData {
   repeated PlayerData players = 1;
   repeated EnemyData  enemies = 2;
-}
-
-service ClientInitializerService {
-  rpc GetZoneData(PayloadClientInitializerRequest) returns (PayloadClientInitializerResponse);
 }
