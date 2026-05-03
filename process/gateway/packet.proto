@@ -26,10 +26,12 @@ message ToServerMessage {
     PayloadLobbyStartGameRequest start_game = 4;
     PayloadLobbyEndGameRequest   end_game   = 5;
 
-    PayloadTransformSync transform_sync = 6;
-    PayloadPlayAction    play_action    = 7;
+    PayloadPlayerZoneEnterComplete player_zone_enter_complete = 6;
 
-    PayloadTextMessage text_message = 8;
+    PayloadTransformSync transform_sync = 7;
+    PayloadPlayAction    play_action    = 8;
+
+    PayloadTextMessage text_message = 9;
   }
 }
 
