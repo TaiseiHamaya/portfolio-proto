@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package Proto;
 
-import "common/session.proto";
 import "common/math.proto";
 
 message PayloadLobbyStartGameRequest {

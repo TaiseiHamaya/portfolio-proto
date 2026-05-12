@@ -3,11 +3,10 @@ syntax = "proto3";
 package Proto;
 
 import "common/math.proto";
-import "common/session.proto";
 
 message PayloadPlayerRecord {
-  uint64 user_id = 1;
-  string username = 2;
+  uint64  user_id  = 1;
+  string  username = 2;
   Vector3 position = 3;
-  uint64 zone_id = 4;
+  uint64  zone_id  = 4;
 }

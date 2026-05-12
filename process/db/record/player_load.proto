@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package Proto;
 
-import "common/session.proto";
 import "process/db/record/player_record.proto";
 
 message PayloadPlayerLoadRequest {
@@ -10,6 +9,6 @@ message PayloadPlayerLoadRequest {
 }
 
 message PayloadPlayerLoadResponse {
-  bool is_succeeded = 1;
-  PayloadPlayerRecord record = 2;
+  bool                is_succeeded = 1;
+  PayloadPlayerRecord record       = 2;
 }

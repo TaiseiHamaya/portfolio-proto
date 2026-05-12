@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package Proto;
 
-import "common/session.proto";
-
 import "process/world/route_player_data.proto";
 
 message PayloadPlayerZoneEnterBegin {

@@ -3,9 +3,9 @@ syntax = "proto3";
 package Proto;
 
 enum PlayerRouteResult {
-  SUCCESS = 0;
+  SUCCESS   = 0;
   NOT_READY = 1;
-  FAILED = 2;
+  FAILED    = 2;
 }
 
 message PayloadPlayerRouteResult {
