@@ -13,7 +13,6 @@ import "process/world/player_route.proto";
 import "process/lobby/start_game.proto";
 import "process/lobby/end_game.proto";
 import "process/lobby/enter.proto";
-import "process/lobby/exit.proto";
 
 // Gateway-facing routing packet: all payload types the gateway receives from
 // clients and forwards to the appropriate internal process.

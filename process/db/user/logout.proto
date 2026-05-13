@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package Proto;
 
-import "common/session.proto";
-
 message PayloadLogoutRequest {
   uint64 user_id = 1;
 }
