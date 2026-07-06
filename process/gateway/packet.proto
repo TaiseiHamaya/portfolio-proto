@@ -13,9 +13,8 @@ import "process/world/player_route.proto";
 import "process/lobby/start_game.proto";
 import "process/lobby/end_game.proto";
 import "process/lobby/enter.proto";
+import "process/gateway/heartbeat.proto";
 
-// Gateway-facing routing packet: all payload types the gateway receives from
-// clients and forwards to the appropriate internal process.
 message ToServerMessage {
   oneof message {
     PayloadLoginRequest  login_request  = 1;
@@ -31,6 +30,8 @@ message ToServerMessage {
     PayloadPlayAction    play_action    = 8;
 
     PayloadTextMessage text_message = 9;
+
+    PayloadHeartbeatRequest heartbeat_request = 10;
   }
 }
 
@@ -54,5 +55,7 @@ message ToClientMessage {
     PayloadZoneExitNotification  zone_exit_notification  = 14;
 
     PayloadTextMessage text_message = 15;
+
+	PayloadHeartbeatResponse heartbeat_response = 16;
   }
 }

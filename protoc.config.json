@@ -22,7 +22,8 @@
 				"process/lobby/start_game.proto",
 				"process/lobby/end_game.proto",
 				"process/lobby/enter.proto",
-				"process/lobby/exit.proto"
+				"process/lobby/exit.proto",
+				"process/gateway/heartbeat.proto"
 			]
 		},
 		{
@@ -46,7 +47,8 @@
 				"process/lobby/start_game.proto",
 				"process/lobby/end_game.proto",
 				"process/lobby/enter.proto",
-				"process/lobby/exit.proto"
+				"process/lobby/exit.proto",
+				"process/gateway/heartbeat.proto"
 			]
 		}
 	]
